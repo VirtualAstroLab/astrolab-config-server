@@ -1,4 +1,4 @@
 
 spring:
   application:
-    name: educafacil-config-server
+    name: astrolab-config-server

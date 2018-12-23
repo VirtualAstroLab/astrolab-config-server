@@ -7,4 +7,4 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/VirtualAstroLab/astrolab-configurations
+          uri: https://github.com/VirtualAstroLab/astrolab-configurations/resources
