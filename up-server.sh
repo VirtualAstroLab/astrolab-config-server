@@ -1,33 +1,44 @@
 #!/usr/bin/env bash
 
 
-
 MAVEN="/home/rsouza/Ontwikkeling/apache-maven-3.5.4/bin/mvn"
 SERVER_PORT=9090
 SERVER_NAME=astrolab-config-server
+ORG_NAME=astrolabweb
+LOGIN_NAME=rsouza01
+IMG_TAG=latest
 
 echo "------------------------------------------------------------------"
 echo "Running maven."
 echo "------------------------------------------------------------------"
 
-$MAVEN package -f pom.xml -DskipTests
+#$MAVEN package -f pom.xml -DskipTests
 
 echo "------------------------------------------------------------------"
 echo "Copying jar."
 echo "------------------------------------------------------------------"
-cp ./target/$SERVER_NAME-0.0.1-SNAPSHOT.jar ./jar/$SERVER_NAME.jar
+
+#cp ./target/$SERVER_NAME-0.0.1-SNAPSHOT.jar ./jar/$SERVER_NAME.jar
 
 echo "------------------------------------------------------------------"
 echo "Deleting container."
 echo "------------------------------------------------------------------"
 
-sudo docker rm  $SERVER_NAME
+sudo docker rm  $ORG_NAME/$SERVER_NAME:$IMG_TAG
 
 echo "------------------------------------------------------------------"
 echo "Dockerizing."
 echo "------------------------------------------------------------------"
 
-sudo docker build --tag $SERVER_NAME:latest --file ./dockerfiles/Dockerfile.server.yml --rm=true .
+sudo docker build --tag $ORG_NAME/$SERVER_NAME:$IMG_TAG --file ./dockerfiles/Dockerfile.server.yml --rm=true .
+
+echo "------------------------------------------------------------------"
+echo "Sending to Docker Hub"
+echo "------------------------------------------------------------------"
+
+sudo docker login --username=$LOGIN_NAME
+
+sudo docker push $ORG_NAME/$SERVER_NAME:$IMG_TAG  
 
 echo "------------------------------------------------------------------"
 echo "Running docker image."
@@ -38,6 +49,3 @@ sudo docker run --name=$SERVER_NAME --publish=$SERVER_PORT:$SERVER_PORT -it $SER
 echo "------------------------------------------------------------------"
 echo "Done!"
 echo "------------------------------------------------------------------"
-
-
-# java -jar ../target/astrolab-config-server-0.0.1-SNAPSHOT.jar
