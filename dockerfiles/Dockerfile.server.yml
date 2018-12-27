@@ -1,0 +1,13 @@
+ FROM openjdk:8u121-jre-alpine 
+
+MAINTAINER astrolab.web
+
+COPY jar/astrolab-config-server.jar /opt/spring-cloud/lib/
+
+ENTRYPOINT ["/usr/bin/java"]
+
+CMD ["-jar", "/opt/spring-cloud/lib/astrolab-config-server.jar"]
+
+#VOLUME /var/lib/spring-cloud/config-repo
+
+EXPOSE 9090
