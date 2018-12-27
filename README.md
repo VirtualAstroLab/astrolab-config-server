@@ -10,7 +10,6 @@ These instructions will get you a copy of the project up and running on your loc
 
 You need the following installed for running the project:
 
-
 * [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [Maven 3](https://maven.apache.org)
 
