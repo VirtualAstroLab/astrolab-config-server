@@ -85,7 +85,7 @@
 						<image>
 							<name>${docker.image.prefix}/${docker.image.name}</name>
 							<build>
-								<dockerFileDir>${project.basedir}/dockerfiles/</dockerFileDir>
+								<dockerFileDir>${project.basedir}/src/main/docker/</dockerFileDir>
                                 <dockerFile>${docker.fileName}</dockerFile>
 
                                 <!--copies artficact to docker build dir in target-->
