@@ -1,9 +1,15 @@
 #!/usr/bin/env bash
 
+# Do not forget to enable docker
+# sudo chmod 777 /var/run/docker.sock
 
 MAVEN="/home/rsouza/Ontwikkeling/apache-maven-3.5.4/bin/mvn"
-SERVER_NAME=astrolab-config-server
-IMG_TAG=latest
+
+echo "[INFO] ------------------------------------------------------------------------"
+echo "[INFO] Importing settings."
+echo "[INFO] ------------------------------------------------------------------------"
+
+source ./publish-server-settings.sh
 
 echo "[INFO] ------------------------------------------------------------------------"
 echo "[INFO] Running maven for $SERVER_NAME."
