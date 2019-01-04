@@ -8,10 +8,6 @@ spring:
         git:
           uri: https://github.com/VirtualAstroLab/astrolab-configurations
           searchPaths: config
-          repos:
-            local:
-              pattern: local*
-              uri: file:/home/rsouza/Projecten/AstroLab - Project/astrolab-configurations 
 
 info:
   app:
@@ -23,3 +19,5 @@ management:
     web:
       exposure:
         include: "*"
+
+        
