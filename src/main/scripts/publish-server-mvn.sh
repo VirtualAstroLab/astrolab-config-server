@@ -16,7 +16,7 @@
 #
 
 
-_HEADER="========================================================================"
+_HEADER="[INFO] ========================================================================"
 _USE_MESSAGE="
 Usage: $(basename "$0") [OPTIONS]
 OPTIONS:
@@ -27,8 +27,7 @@ _VERSION=$(grep '^# Version ' "$0" | tail -1 | cut -d : -f 1 | tr -d \#)
 
 clear
 echo $_HEADER
-echo -n $(basename "$0")
-echo " ${_VERSION}"
+echo "[INFO]" $(basename "$0") " ${_VERSION}"
 echo $_HEADER
 
 #Command line arguments
@@ -55,7 +54,7 @@ echo "[INFO] -------------------------------------------------------------------
 echo "[INFO] Importing settings."
 echo "[INFO] ------------------------------------------------------------------------"
 
-source ./publish-server-settings.sh
+source ./env.sh
 
 echo "[INFO] ------------------------------------------------------------------------"
 echo "[INFO] Running maven for $SERVER_NAME."

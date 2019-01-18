@@ -19,7 +19,6 @@
 		<spring-cloud.version>Greenwich.RC1</spring-cloud.version>
 
         <docker.fileName>Dockerfile.server.yml</docker.fileName>
-		
 		<!-- ACCOUNT -->
 		<docker.image.prefix>astrolabweb</docker.image.prefix>
 
